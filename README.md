@@ -4,7 +4,7 @@
 
 ## Screenshots:
 
-![screenshot](https://github.com/mohamedelshamy55/Leaderboard/blob/setup-project/screenshot.png)
+![screenshot](https://github.com/mohamedelshamy55/Math-Magicians/blob/setup/screenshot.png)
 
 
 Porject's features are added into seperate branch to keep main branch safe.
