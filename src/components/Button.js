@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+/**
+ * @component Button - the component for each button
+ * @property {Array} selector
+ * @property {String} sym
+ * @property {Function} handleBtnClick
+ */
+const Button = (props) => {
+  const { selector, sym, handleBtnClick } = props;
+  const handleClick = () => handleBtnClick(sym);
 
-  render() {
-    const { selector, sym } = this.props;
-    return (
-      <button type="button" className={selector.join(' ')}>{sym}</button>
-    );
-  }
-}
+  return (
+    <button type="button" className={selector.join(' ')} onClick={handleClick}>{sym}</button>
+  );
+};
 
 Button.propTypes = {
   selector: PropTypes.arrayOf(PropTypes.string).isRequired,
   sym: PropTypes.string.isRequired,
+  handleBtnClick: PropTypes.func.isRequired,
 };
 
 export default Button;

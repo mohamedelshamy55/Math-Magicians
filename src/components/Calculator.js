@@ -1,25 +1,31 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import '../index.css';
 import Row from './Row';
+import calculate from '../logic/calculate';
 
-class Calculator extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+/**
+ * @component Calculator - the complete calculator components
+ */
+const Calculator = () => {
+  const [data, setData] = useState({ total: '0', next: null, operation: null });
 
-  render() {
-    return (
-      <div className="calculator">
-        <div className="output">10</div>
-        <Row types={['AC', '+/-', '%']} operand="&divide;" />
-        <Row types={['7', '8', '9']} operand="&times;" />
-        <Row types={['4', '5', '6']} operand="&minus;" />
-        <Row types={['1', '2', '3']} operand="+" />
-        <Row types={['0', '.', '=']} operand="" />
+  const handleBtnClick = (sym) => setData(calculate(data, sym));
+  const { total, next, operation } = data;
+
+  return (
+    <div className="calculator">
+      <div className="output">
+        {total}
+        {operation}
+        {next}
       </div>
-    );
-  }
-}
+      <Row types={['AC', '+/-', '%']} operand="÷" handleClick={handleBtnClick} />
+      <Row types={['7', '8', '9']} operand="x" handleClick={handleBtnClick} />
+      <Row types={['4', '5', '6']} operand="-" handleClick={handleBtnClick} />
+      <Row types={['1', '2', '3']} operand="+" handleClick={handleBtnClick} />
+      <Row types={['0', '.', '=']} operand="" handleClick={handleBtnClick} />
+    </div>
+  );
+};
 
 export default Calculator;
