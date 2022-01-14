@@ -20,7 +20,7 @@ describe('mathematical operations', () => {
   test('Use Modulo', () => {
     expect(operate(8, 3, '%')).toEqual('2');
   });
-  
+
   test('Divise two numbers', () => {
     expect(operate(5, 0, '÷')).toBe("Can't divide by 0.");
   });
