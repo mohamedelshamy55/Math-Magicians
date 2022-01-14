@@ -1,40 +1,34 @@
-import { useState } from 'react';
-import '../index.css';
-import { FaLaughBeam } from 'react-icons/fa';
-import Row from './Row';
+import React, { useState } from 'react';
 import calculate from '../logic/calculate';
+import buttonNames from './BtnNames';
+import '../App.css';
 
-/**
- * @component Calculator - the complete calculator components
- */
+// eslint-disable-next-line react/prefer-stateless-function
 const Calculator = () => {
-  const [data, setData] = useState({ total: '0', next: null, operation: null });
+  const [calcObject, setCalcObject] = useState({});
 
-  const handleBtnClick = (sym) => setData(calculate(data, sym));
-  const { total, next, operation } = data;
+  function handleClick(e) {
+    e.preventDefault();
+    try {
+      setCalcObject({ ...calcObject, ...calculate(calcObject, e.target.textContent) });
+    } catch (error) {
+      return calcObject;
+    }
+    return 0;
+  }
+
+  const { next, total } = calcObject;
+  const btnClass = (i) => ((((i + 1) % 4 === 0) || i === 18) ? 'orange-btn' : 'gray-btn');
 
   return (
-    <>
-      <div className="home" style={{ textAlign: 'center', display: 'flex', justifyContent: 'center' }}>
-        <h2>Try Out Some Maths</h2>
-        <FaLaughBeam style={{
-          marginTop: '5px', marginLeft: '10px', fontSize: '20px', color: '#a8642c',
-        }}
-        />
-      </div>
-      <div className="calculator">
-        <div className="output">
-          {total}
-          {operation}
-          {next}
-        </div>
-        <Row types={['AC', '+/-', '%']} operand="÷" handleClick={handleBtnClick} />
-        <Row types={['7', '8', '9']} operand="x" handleClick={handleBtnClick} />
-        <Row types={['4', '5', '6']} operand="-" handleClick={handleBtnClick} />
-        <Row types={['1', '2', '3']} operand="+" handleClick={handleBtnClick} />
-        <Row types={['0', '.', '=']} operand="" handleClick={handleBtnClick} />
-      </div>
-    </>
+    <div className="calc-container">
+      <div className="calc-display">{next || total || 0}</div>
+      {buttonNames.map((name, i) => (
+        <button key={i.toString()} type="button" onClick={handleClick} className={btnClass(i)}>
+          {name}
+        </button>
+      ))}
+    </div>
   );
 };
 
