@@ -26,7 +26,9 @@ Porject's features are added into seperate branch to keep main branch safe.
   ```
 ## Online live link
 
-[Visit project online](https://mohamedelshamy55.github.io/Math-Magicians/)
+- Gitub pages live demo [link](https://mohamedelshamy55.github.io/Math-Magicians/)
+- Heroku live demo [link](https://mathmagiciansapp.herokuapp.com)
+- Netlify live demo [link](https://clever-almeida-8e8371.netlify.app/)
 
 ## Getting Started
 
