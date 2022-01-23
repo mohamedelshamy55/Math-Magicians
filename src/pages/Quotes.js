@@ -1,11 +1,16 @@
-/* eslint-disable max-len */
 import React from 'react';
-import '../App.css';
+import './Quotes.css';
 
-export default function Quotes() {
-  return (
-    <div className="quote">
-      <p>Mathematics is not about numbers, equations, computations or algorithms; it’s about understanding. - William Paul Thurston</p>
-    </div>
-  );
-}
+const Quotes = () => (
+  <section className="quote">
+    <h1>
+      “Mathematics is not about numbers, equations, computations,
+      or algorithms: it is about understanding.”
+
+      - William Paul Thurston.
+
+    </h1>
+  </section>
+);
+
+export default Quotes;

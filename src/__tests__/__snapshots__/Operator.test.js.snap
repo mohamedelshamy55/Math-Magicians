@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1 of Operator component 1`] = `
+<li
+  data-testid="oper-li"
+>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    -
+  </button>
+</li>
+`;

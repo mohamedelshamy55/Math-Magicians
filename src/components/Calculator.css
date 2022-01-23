@@ -1,0 +1,147 @@
+.calc-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 36px;
+  width: 100vw;
+  height: 75vh;
+}
+
+.calc-title {
+  width: 40%;
+  display: flex;
+  margin-top: 36px;
+  justify-content: start;
+}
+
+.calc-title h3 {
+  font-size: 2rem;
+  color: thistle;
+}
+
+.calcbody {
+  border: none;
+  box-shadow: inset -3px -3px 5px #ffffff90, 3px 3px 15px #00000070;
+  width: 60%;
+  height: 496px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 12px;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 95px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(111deg, rgba(0, 0, 0, 1) 0%, rgba(51, 51, 51, 1) 52%, rgba(34, 40, 49, 1) 100%);
+  box-shadow: inset -3px -3px 5px #ffffff70, inset 3px 3px 15px #00000070;
+  text-align: end;
+  margin: 0;
+  padding-right: 12px;
+  overflow: hidden;
+}
+
+.result {
+  color: #e0e0e0;
+  font-size: 2rem;
+}
+
+.keypad {
+  width: 100%;
+  height: 400px;
+  display: flex;
+}
+
+.numbers {
+  background-color: #e0e0e0;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.numbers li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 33.3%;
+  height: 20%;
+  border: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.aritmetic {
+  width: 25%;
+  height: 100%;
+  background-color: #f5903e;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.aritmetic li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  height: 20%;
+  border: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.numbers li button,
+.aritmetic li button {
+  background-color: transparent;
+  font-weight: bold;
+  width: 100%;
+  height: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.numbers li button {
+  background: #d1d1d1;
+  box-shadow: -2px -2px 0 #ffffff70, 3px 3px 10px #00000070;
+}
+
+.aritmetic li button {
+  font-size: 1.05rem;
+  background-color: #f5903e;
+  box-shadow: -2px -2px 0 #ffffff70, 3px 3px 15px #00000070;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.numbers li button:hover,
+.aritmetic li button:hover {
+  color: dodgerblue;
+}
+
+.numbers li button:active,
+.aritmetic li button:active {
+  box-shadow: inset -1px -2px 2px #ffffff70, inset 3px 3px 25px #00000070;
+  transition: all 170ms ease-in-out;
+}
+
+.numbers li[btnName="0"] {
+  flex: 2;
+}

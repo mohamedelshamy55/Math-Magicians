@@ -1,35 +1,56 @@
 import React, { useState } from 'react';
+import './Calculator.css';
 import calculate from '../logic/calculate';
-import buttonNames from './BtnNames';
-import '../App.css';
+import Nums from './Nums';
+import Operator from './Operator';
+import { keyboard, operators } from './Keyboard';
 
-// eslint-disable-next-line react/prefer-stateless-function
-const Calculator = () => {
-  const [calcObject, setCalcObject] = useState({});
+const calculator = () => {
+  const [calcObj, setCalcObject] = useState({});
 
-  function handleClick(e) {
-    e.preventDefault();
-    try {
-      setCalcObject({ ...calcObject, ...calculate(calcObject, e.target.textContent) });
-    } catch (error) {
-      return calcObject;
-    }
-    return 0;
-  }
+  const clickHandler = (e) => {
+    const buttonName = e.target.innerText;
+    setCalcObject(calculate(calcObj, buttonName));
+  };
 
-  const { next, total } = calcObject;
-  const btnClass = (i) => ((((i + 1) % 4 === 0) || i === 18) ? 'orange-btn' : 'gray-btn');
-
+  const screen = `${((calcObj.total || '') + (calcObj.operation || '') + (calcObj.next || '')) || '0'}`;
   return (
-    <div className="calc-container">
-      <div data-testid="display-element" className="calc-display">{next || total || 0}</div>
-      {buttonNames.map((name, i) => (
-        <button key={i.toString()} type="button" onClick={handleClick} className={btnClass(i)}>
-          {name}
-        </button>
-      ))}
+    <div data-testid="calc" className="calc-wrapper">
+      <div className="calc-title">
+        <h3>Let&apos;s do some math!</h3>
+      </div>
+      <div className="calcbody">
+        <div className="display"><p className="result" data-testid="display">{screen}</p></div>
+        <div className="keypad">
+          <ul className="numbers">
+            {keyboard.map((item) => {
+              const { id, buttonName } = item;
+              return (
+                <Nums
+                  key={id}
+                  buttonName={buttonName}
+                  btnname={buttonName}
+                  clickHandler={clickHandler}
+                />
+              );
+            })}
+          </ul>
+          <ul className="aritmetic">
+            {operators.map((item) => {
+              const { id, buttonName } = item;
+              return (
+                <Operator
+                  key={id}
+                  buttonName={buttonName}
+                  clickHandler={clickHandler}
+                />
+              );
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Calculator;
+export default calculator;

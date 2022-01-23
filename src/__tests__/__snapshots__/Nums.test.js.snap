@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1 of Num component 1`] = `
+<li
+  btnname="5"
+  data-testid="num-li"
+>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    5
+  </button>
+</li>
+`;

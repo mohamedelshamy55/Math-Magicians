@@ -1,0 +1,10 @@
+.quote {
+  margin-top: 36px;
+  max-width: 75vw;
+  height: 50vh;
+  margin-left: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: thistle;
+}
