@@ -4,7 +4,7 @@
 
 ## Screenshots:
 
-![screenshot](https://github.com/mohamedelshamy55/Math-Magicians/blob/components/screenshot.png)
+![screenshot](https://github.com/mohamedelshamy55/Math-Magicians/blob/master/public/preview.png)
 
 
 Porject's features are added into seperate branch to keep main branch safe.
